@@ -1,12 +1,28 @@
 {% extends 'base' %}
 
-{% block title %}Name Generator | pagename {% endblock %}
+{% block title %}Woodsy Minecraft Server Status {% endblock %}
 
 
 {% block body %}
 
-<div class="accordion" id="accordionExample">
-    bork
+<div class="container-sm">
+{% for server in servers %}
+<!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+<div class="container-sm">
+    <div class="card" style="width: 18rem;">
+<!--        <img class="card-img-top" src="..." alt="Card image cap">-->
+        <div class="card-body">
+            <h5 class="card-title">{{ server.config.name }}</h5>
+            <p class="card-text">
+                Status: {{ server.status.status }} <br/>
+                Players online: {{ server.status.playerCount }} <br/>
+                Playerlist: {{ server.status.playerList }} <br/>
+            </p>
+            <a href="{{ server.config.dynmapAddress }}" class="btn btn-primary">Open dynmap</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
 </div>
 
 {%  endblock %}
