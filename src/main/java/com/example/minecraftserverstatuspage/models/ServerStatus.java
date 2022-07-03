@@ -3,7 +3,7 @@ package com.example.minecraftserverstatuspage.models;
 import java.util.*;
 
 public record ServerStatus(
-        boolean isOnline,
+        String isOnline,
         String ip,
         int port,
         Map<String, String> debug,
@@ -23,7 +23,15 @@ public record ServerStatus(
         Map<String, Object> info) {
 
     public String status() {
-        return (isOnline) ? "Online" : "Offline";
+        if (players == null) {
+            return "Offline";
+        }
+
+        List<?> playerList = (List<?>) players.get("list");
+
+        return (playerList != null && playerList.size() > 0) ?
+                "Online" :
+                "Offline";
     }
 
     public int playerCount() {
@@ -48,6 +56,6 @@ public record ServerStatus(
             return new ArrayList<>();
         }
 
-        return playerList.values();
+        return playerList.keySet();
     }
 }

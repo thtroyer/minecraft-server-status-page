@@ -26,9 +26,10 @@ public class Status {
     public String getStatus(Model model) {
         List<ServerConfigStatus> serverConfigStatusList = new ArrayList<>();
 
-        for (var server : serverConfigList.serverList()) {
-            serverConfigStatusList.add(minecraftQueryService.getServerStatus(server));
-        }
+//        for (var server : serverConfigList.serverList()) {
+//            serverConfigStatusList.add(minecraftQueryService.getServerStatus(server));
+//        }
+        serverConfigStatusList = minecraftQueryService.getServerStatus(serverConfigList.serverList());
 
         System.out.println(serverConfigStatusList);
         model.addAttribute("servers", serverConfigStatusList);
