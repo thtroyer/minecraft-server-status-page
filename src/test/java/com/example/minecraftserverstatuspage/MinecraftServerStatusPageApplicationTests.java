@@ -1,10 +1,10 @@
-package com.example.minecraftserverstatuspage2;
+package com.example.minecraftserverstatuspage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MinecraftServerStatusPage2ApplicationTests {
+class MinecraftServerStatusPageApplicationTests {
 
     @Test
     void contextLoads() {
