@@ -1,4 +1,4 @@
-package com.example.minecraftserverstatuspage.models;
+package com.example.minecraftserverstatuspage.models.config;
 
 public record ServerConfig(
         String name,

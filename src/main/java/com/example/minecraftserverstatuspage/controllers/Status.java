@@ -1,6 +1,6 @@
 package com.example.minecraftserverstatuspage.controllers;
 
-import com.example.minecraftserverstatuspage.models.ServerConfigList;
+import com.example.minecraftserverstatuspage.models.config.ServerConfigList;
 import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
 import com.example.minecraftserverstatuspage.services.MinecraftQueryService;
 import org.springframework.stereotype.Controller;
@@ -24,12 +24,7 @@ public class Status {
 
     @GetMapping("/")
     public String getStatus(Model model) {
-        List<ServerConfigStatus> serverConfigStatusList = new ArrayList<>();
-
-//        for (var server : serverConfigList.serverList()) {
-//            serverConfigStatusList.add(minecraftQueryService.getServerStatus(server));
-//        }
-        serverConfigStatusList = minecraftQueryService.getServerStatus(serverConfigList.serverList());
+        List<ServerConfigStatus> serverConfigStatusList = minecraftQueryService.getServerStatus(serverConfigList.serverList());
 
         model.addAttribute("servers", serverConfigStatusList);
 

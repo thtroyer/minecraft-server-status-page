@@ -1,19 +1,16 @@
 package com.example.minecraftserverstatuspage.services;
 
-import com.example.minecraftserverstatuspage.models.ServerConfig;
+import com.example.minecraftserverstatuspage.models.config.ServerConfig;
 import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
 import com.example.minecraftserverstatuspage.models.ServerStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -43,10 +40,8 @@ public class MinecraftQueryService {
 
         for (var serverConfig : serverConfigList) {
             if (cacheContainsKey(serverConfig)) {
-                logger.info("cache hit");
                 results.add(getFromCache(serverConfig));
             } else {
-                logger.info("cache miss");
                 serverMap.put(serverConfig, getServerStatusAsync(serverConfig));
             }
         }
@@ -77,11 +72,11 @@ public class MinecraftQueryService {
     }
 
     /**
-     * Clear cache every 119,000 ms (<2 minutes)
+     * Clear cache every 119,000 ms (~<2 minutes)
      */
     @Scheduled(fixedDelay = 119_000)
     public void clearCache() {
-        logger.info("Clearing cache");
+        logger.debug("Clearing cache");
         cache = new HashMap<>();
     }
 

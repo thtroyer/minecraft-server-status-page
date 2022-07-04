@@ -1,0 +1,13 @@
+# modify this list with your minecraft server details
+# and rename as "application.yaml"
+
+servers:
+  serverList:
+    - name: server1
+      address: someminecraftserver.com
+      dynmapAddress: http://someminecraftserver.com:8123
+      order: 1
+    - name: server2
+      address: someminecraftserver.com:25566
+      dynmapAddress: http://someminecraftserver.com:8124
+      order: 2
