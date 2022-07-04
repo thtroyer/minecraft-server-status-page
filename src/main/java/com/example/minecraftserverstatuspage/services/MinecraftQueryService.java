@@ -3,6 +3,8 @@ package com.example.minecraftserverstatuspage.services;
 import com.example.minecraftserverstatuspage.models.ServerConfig;
 import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
 import com.example.minecraftserverstatuspage.models.ServerStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -19,10 +21,11 @@ import java.util.*;
 @Service
 @CacheConfig(cacheNames = {"serverstatus"})
 public class MinecraftQueryService {
+    Logger logger = LoggerFactory.getLogger(MinecraftQueryService.class);
     private Map<ServerConfig, ServerConfigStatus> cache;
 
+    @Deprecated
     public ServerConfigStatus getServerStatus(ServerConfig serverConfig) {
-        System.out.println("not cached");
         WebClient client = WebClient.create("https://api.mcsrvstat.us");
 
         Mono<ServerStatus> response = client.get()
@@ -40,13 +43,16 @@ public class MinecraftQueryService {
 
         for (var serverConfig : serverConfigList) {
             if (cacheContainsKey(serverConfig)) {
+                logger.info("cache hit");
                 results.add(getFromCache(serverConfig));
             } else {
+                logger.info("cache miss");
                 serverMap.put(serverConfig, getServerStatusAsync(serverConfig));
             }
         }
 
         serverMap.forEach((key, val) -> results.add(new ServerConfigStatus(key, val.block())));
+        results.forEach(item -> cache.put(item.config(), item));
 
         Collections.sort(results);
 
@@ -71,10 +77,11 @@ public class MinecraftQueryService {
     }
 
     /**
-     * Clear cache every 180,000 ms (3 minutes)
+     * Clear cache every 119,000 ms (<2 minutes)
      */
-    @Scheduled(fixedDelay = 180_000)
+    @Scheduled(fixedDelay = 119_000)
     public void clearCache() {
+        logger.info("Clearing cache");
         cache = new HashMap<>();
     }
 

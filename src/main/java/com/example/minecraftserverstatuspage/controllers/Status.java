@@ -31,7 +31,6 @@ public class Status {
 //        }
         serverConfigStatusList = minecraftQueryService.getServerStatus(serverConfigList.serverList());
 
-        System.out.println(serverConfigStatusList);
         model.addAttribute("servers", serverConfigStatusList);
 
         return "status";

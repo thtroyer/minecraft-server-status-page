@@ -5,22 +5,17 @@
 
 {% block body %}
 
-<div class="container-sm">
+<div class="container-lg">
 {% for server in servers %}
-<!--<div class="col-lg-3 col-md-4 col-sm-6">-->
-<div class="container-sm">
-    <div class="card" style="width: 18rem;">
-<!--        <img class="card-img-top" src="..." alt="Card image cap">-->
+    <div class="card {% if server.status.active %} border-success {% endif %} float-md-left m-2" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{ server.config.name }}</h5>
             <p class="card-text">
-                Status: {{ server.status.status }} <br/>
                 Players online: {{ server.status.playerCount }} <br/>
                 Playerlist: {{ server.status.playerList }} <br/>
             </p>
-            <a href="{{ server.config.dynmapAddress }}" target="_blank" class="btn btn-primary">Open dynmap</a>
+            <a href="{{ server.config.dynmapAddress }}" target="_blank" class="btn {% if server.status.active %} btn-primary {% endif %}">Open dynmap</a>
         </div>
-    </div>
 </div>
 {% endfor %}
 </div>
@@ -28,4 +23,5 @@
 {%  endblock %}
 
 {% block javascripts %}
+<!-- todo add auto refresh -->
 {%  endblock %}

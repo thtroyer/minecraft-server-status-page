@@ -34,6 +34,10 @@ public record ServerStatus(
                 "Offline";
     }
 
+    public boolean active() {
+        return status().equals("Online");
+    }
+
     public int playerCount() {
         if (players == null) {
             return 0;
