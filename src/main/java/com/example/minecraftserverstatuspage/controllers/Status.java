@@ -35,6 +35,6 @@ public class Status {
     }
 
     private String now() {
-        return new SimpleDateFormat("yyyy-MM-dd &nbsp;&nbsp;&nbsp; hh:mm a").format(new Date());
+        return new SimpleDateFormat("yyyy-MM-dd @ hh:mm a").format(new Date());
     }
 }
