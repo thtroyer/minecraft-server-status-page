@@ -33,9 +33,12 @@
 </div>
 {% block javascripts %}{% endblock %}
 
-<footer class="footer fixed-bottom text-center text-light bg-dark">
-    <div class="container">
-        © Tom Troyer 2022. All rights reserved.
+<footer class="footer fixed-bottom text-light bg-dark">
+<!--    <div class="container text-center">-->
+<!--        © Tom Troyer 2022. All rights reserved.-->
+<!--    </div>-->
+    <div class="container text-right">
+        Page rendered at: {{ current_time }}
     </div>
 </footer>
 </body>

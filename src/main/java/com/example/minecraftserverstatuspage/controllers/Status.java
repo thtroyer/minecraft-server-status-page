@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,7 +29,12 @@ public class Status {
         List<ServerConfigStatus> serverConfigStatusList = minecraftQueryService.getServerStatus(serverConfigList.serverList());
 
         model.addAttribute("servers", serverConfigStatusList);
+        model.addAttribute("current_time", now());
 
         return "status";
+    }
+
+    private String now() {
+        return new SimpleDateFormat("yyyy-MM-dd &nbsp;&nbsp;&nbsp; hh:mm a").format(new Date());
     }
 }
