@@ -1,6 +1,9 @@
 # modify this list with your minecraft server details
 # and rename as "application.yaml"
 
+site:
+  title: "Minecraft Server Status Page"
+
 servers:
   serverList:
     - name: server1

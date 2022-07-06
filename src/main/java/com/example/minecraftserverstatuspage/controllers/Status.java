@@ -3,6 +3,9 @@ package com.example.minecraftserverstatuspage.controllers;
 import com.example.minecraftserverstatuspage.models.config.ServerConfigList;
 import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
 import com.example.minecraftserverstatuspage.services.MinecraftQueryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +22,12 @@ public class Status {
 
     private final ServerConfigList serverConfigList;
 
-    public Status(MinecraftQueryService minecraftQueryService, ServerConfigList serverConfigList) {
+    private final Environment env;
+
+    public Status(MinecraftQueryService minecraftQueryService, ServerConfigList serverConfigList, Environment env) {
         this.minecraftQueryService = minecraftQueryService;
         this.serverConfigList = serverConfigList;
+        this.env = env;
     }
 
     @GetMapping("/")
@@ -30,6 +36,7 @@ public class Status {
 
         model.addAttribute("servers", serverConfigStatusList);
         model.addAttribute("current_time", now());
+        model.addAttribute("site_title", env.getProperty("site.title", "Minecraft Server Status Page"));
 
         return "status";
     }
