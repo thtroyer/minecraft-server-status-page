@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -42,6 +44,6 @@ public class Status {
     }
 
     private String now() {
-        return DateTimeFormatter.ofPattern("yyyy-MM-dd @ hh:mm a").format(LocalDateTime.now());
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd @ hh:mm a").format(LocalDateTime.now().atZone(ZoneId.systemDefault()));
     }
 }
