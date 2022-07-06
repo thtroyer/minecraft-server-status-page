@@ -4,5 +4,6 @@ public record ServerConfig(
         String name,
         String address,
         String dynmapAddress,
-        int order) {
+        int order,
+        boolean alwaysShowDynmap) {
 }

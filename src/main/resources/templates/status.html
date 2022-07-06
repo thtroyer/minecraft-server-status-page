@@ -14,7 +14,7 @@
                 Players online: {{ server.status.playerCount }} <br/>
                 Playerlist: {{ server.status.playerList }} <br/>
             </p>
-            <a href="{{ server.config.dynmapAddress }}" target="_blank" class="btn {% if server.status.active %} btn-primary {% endif %}">Open dynmap</a>
+            <a href="{{ server.config.dynmapAddress }}" target="_blank" class="btn {% if server.status.active or server.config.alwaysShowDynmap %} btn-primary {% endif %}">Open dynmap</a>
         </div>
 </div>
 {% endfor %}
