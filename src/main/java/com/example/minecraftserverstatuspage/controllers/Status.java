@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -34,6 +35,6 @@ public class Status {
     }
 
     private String now() {
-        return new SimpleDateFormat("yyyy-MM-dd @ hh:mm a").format(new Date());
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd @ hh:mm a").format(LocalDateTime.now());
     }
 }
