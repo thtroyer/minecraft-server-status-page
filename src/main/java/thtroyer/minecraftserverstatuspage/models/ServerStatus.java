@@ -1,4 +1,4 @@
-package com.example.minecraftserverstatuspage.models;
+package thtroyer.minecraftserverstatuspage.models;
 
 import java.util.*;
 

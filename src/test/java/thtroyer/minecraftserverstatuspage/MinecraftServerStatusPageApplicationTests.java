@@ -1,4 +1,4 @@
-package com.example.minecraftserverstatuspage;
+package thtroyer.minecraftserverstatuspage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

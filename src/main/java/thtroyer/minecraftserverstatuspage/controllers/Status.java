@@ -1,19 +1,15 @@
-package com.example.minecraftserverstatuspage.controllers;
+package thtroyer.minecraftserverstatuspage.controllers;
 
-import com.example.minecraftserverstatuspage.models.config.ServerConfigList;
-import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
-import com.example.minecraftserverstatuspage.services.MinecraftQueryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import thtroyer.minecraftserverstatuspage.models.config.ServerConfigList;
+import thtroyer.minecraftserverstatuspage.models.ServerConfigStatus;
+import thtroyer.minecraftserverstatuspage.services.MinecraftQueryService;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 

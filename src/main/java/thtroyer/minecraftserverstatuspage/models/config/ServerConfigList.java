@@ -1,4 +1,4 @@
-package com.example.minecraftserverstatuspage.models.config;
+package thtroyer.minecraftserverstatuspage.models.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;

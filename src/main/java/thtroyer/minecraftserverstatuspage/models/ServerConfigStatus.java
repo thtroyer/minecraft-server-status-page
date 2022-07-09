@@ -1,6 +1,6 @@
-package com.example.minecraftserverstatuspage.models;
+package thtroyer.minecraftserverstatuspage.models;
 
-import com.example.minecraftserverstatuspage.models.config.ServerConfig;
+import thtroyer.minecraftserverstatuspage.models.config.ServerConfig;
 
 public record ServerConfigStatus(ServerConfig config, ServerStatus status) implements Comparable<ServerConfigStatus> {
     @Override

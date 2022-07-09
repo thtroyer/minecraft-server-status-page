@@ -1,8 +1,8 @@
-package com.example.minecraftserverstatuspage.services;
+package thtroyer.minecraftserverstatuspage.services;
 
-import com.example.minecraftserverstatuspage.models.config.ServerConfig;
-import com.example.minecraftserverstatuspage.models.ServerConfigStatus;
-import com.example.minecraftserverstatuspage.models.ServerStatus;
+import thtroyer.minecraftserverstatuspage.models.config.ServerConfig;
+import thtroyer.minecraftserverstatuspage.models.ServerConfigStatus;
+import thtroyer.minecraftserverstatuspage.models.ServerStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;

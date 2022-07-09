@@ -1,4 +1,4 @@
-package com.example.minecraftserverstatuspage.configuration;
+package thtroyer.minecraftserverstatuspage.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

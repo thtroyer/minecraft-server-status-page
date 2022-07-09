@@ -8,9 +8,10 @@
         <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+
+    <groupId>thtroyer</groupId>
     <artifactId>minecraft-server-status-page</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>minecraft-server-status-page</name>
     <description>minecraft-server-status-page</description>
     <properties>
