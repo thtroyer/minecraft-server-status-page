@@ -6,7 +6,7 @@
     {% block stylesheets %}{% endblock %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css" />
 </head>
 <body class="bootstrap-dark">
@@ -34,11 +34,12 @@
 {% block javascripts %}{% endblock %}
 
 <footer class="footer fixed-bottom text-light bg-dark">
-<!--    <div class="container text-center">-->
-<!--        © Tom Troyer 2022. All rights reserved.-->
-<!--    </div>-->
-    <div class="container text-right">
-        Page rendered at: {{ current_time }}
+    <div class="d-flex justify-content-between">
+        <div><img src="/images/GitHub-Mark-Light-32px.png" alt=""/>
+            <a href="https://github.com/thtroyer/minecraft-server-status-page">Source code</a>
+        </div>
+        <div>© Tom Troyer 2022. All rights reserved.</div>
+        <div>Page rendered at: {{ current_time }}</div>
     </div>
 </footer>
 </body>
