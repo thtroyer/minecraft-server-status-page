@@ -6,7 +6,7 @@ public record ServerStatus(
         String isOnline,
         String ip,
         int port,
-        Map<String, String> debug,
+        Map<String, Object> debug,
         Map<String, Object> motd,
         Map<String, Object> players,
         String version,

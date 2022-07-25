@@ -1,5 +1,6 @@
 package thtroyer.minecraftserverstatuspage.services;
 
+import org.springframework.core.codec.DecodingException;
 import thtroyer.minecraftserverstatuspage.models.config.ServerConfig;
 import thtroyer.minecraftserverstatuspage.models.ServerConfigStatus;
 import thtroyer.minecraftserverstatuspage.models.ServerStatus;
@@ -46,7 +47,12 @@ public class MinecraftQueryService {
         return client.get()
                 .uri("/2/" + serverConfig.address(), StandardCharsets.UTF_8)
                 .retrieve()
-                .bodyToMono(ServerStatus.class);
+                .bodyToMono(ServerStatus.class)
+                .onErrorReturn(
+                        new ServerStatus("unknown", serverConfig.address(), 0, null, null,
+                                null, null, 0, serverConfig.name(), null, null,
+                                null, null, null, null, null, null)
+                );
     }
 
     private boolean cacheContainsKey(ServerConfig serverConfig) {
